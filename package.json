@@ -1,0 +1,9 @@
+{
+  "name": "wpgraphql-to-linkeddata",
+  "version": "1.0.0",
+  "description": "Converter from wpgraphql to schema.org linked data format in typescript",
+  "main": "index.js",
+  "repository": "https://github.com/shnydercom/wpgraphql-to-linkeddata.git",
+  "author": "Jonathan Schneider",
+  "license": "MIT"
+}
