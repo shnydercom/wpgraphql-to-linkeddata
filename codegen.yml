@@ -1,11 +1,8 @@
 overwrite: true
-schema: "./wpgraphql-schema"
+schema: "./schema-in/graphql.schema.json"
 documents: "src/**/*.graphql"
 generates:
-  src/generated/graphql.ts:
+  src/generated/wp-graphql.ts:
     plugins:
       - "typescript"
       - "typescript-operations"
-  ./graphql.schema.json:
-    plugins:
-      - "introspection"
