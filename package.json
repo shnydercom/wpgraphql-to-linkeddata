@@ -18,6 +18,7 @@
     "@graphql-codegen/introspection": "1.18.1"
   },
   "scripts": {
-    "gen-gql": "graphql-codegen --config codegen.yml"
+    "gen-gql": "graphql-codegen --config codegen.yml",
+    "build": "tsc"
   }
 }

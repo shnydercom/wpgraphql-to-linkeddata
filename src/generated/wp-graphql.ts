@@ -8096,10 +8096,29 @@ export type ArchiveTemplate = ContentTemplate & {
   templateName?: Maybe<Scalars['String']>;
 };
 
-export type GetPostsByCategoryQueryVariables = Exact<{ [key: string]: never; }>;
+export type PostPreviewFragment = (
+  { __typename?: 'Post' }
+  & Pick<Post, 'title' | 'slug'>
+  & { preview?: Maybe<(
+    { __typename?: 'PostToPreviewConnectionEdge' }
+    & { node?: Maybe<(
+      { __typename?: 'Post' }
+      & Pick<Post, 'excerpt'>
+      & { featuredImage?: Maybe<(
+        { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge' }
+        & { node?: Maybe<(
+          { __typename?: 'MediaItem' }
+          & Pick<MediaItem, 'altText' | 'description' | 'sourceUrl' | 'srcSet'>
+        )> }
+      )> }
+    )> }
+  )> }
+);
+
+export type WpPostPreviewByCategoryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPostsByCategoryQuery = (
+export type WpPostPreviewByCategoryQuery = (
   { __typename?: 'RootQuery' }
   & { posts?: Maybe<(
     { __typename?: 'RootQueryToPostConnection' }
@@ -8107,21 +8126,7 @@ export type GetPostsByCategoryQuery = (
       { __typename?: 'RootQueryToPostConnectionEdge' }
       & { node?: Maybe<(
         { __typename?: 'Post' }
-        & Pick<Post, 'title' | 'slug'>
-        & { preview?: Maybe<(
-          { __typename?: 'PostToPreviewConnectionEdge' }
-          & { node?: Maybe<(
-            { __typename?: 'Post' }
-            & Pick<Post, 'excerpt'>
-            & { featuredImage?: Maybe<(
-              { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge' }
-              & { node?: Maybe<(
-                { __typename?: 'MediaItem' }
-                & Pick<MediaItem, 'altText' | 'description' | 'srcSet'>
-              )> }
-            )> }
-          )> }
-        )> }
+        & PostPreviewFragment
       )> }
     )>>> }
   )> }
