@@ -1,5 +1,5 @@
 {
-  "name": "wpgraphql-to-linkeddata",
+  "name": "@metaexplorer/wpgraphql-to-linkeddata",
   "version": "1.0.0",
   "description": "Converter from wpgraphql to schema.org linked data format in typescript",
   "main": "index.js",
