@@ -1,5 +1,5 @@
 # wpgraphql-to-linkeddata
-Converter from wpgraphql to schema.org json-ld, written in typescript
+Converter from [WPGraphQL](https://www.wpgraphql.com/) to [schema.org](https://schema.org/BlogPosting) [json-ld](https://json-ld.org/), written in typescript
 
 This can be useful if you're using wordpress with wpgraphql as a headless CMS
 
