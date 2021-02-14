@@ -2,7 +2,7 @@ import { PostPreviewFragment } from "./../generated/wp-graphql";
 import { BlogPosting } from "schema-dts";
 
 /**
- * mapper-function to create schmea.org/BlogPosting(s) for previews from fragments
+ * mapper-function to create schema.org/BlogPosting(s) for previews from fragments
  * @param input a fragment of a WordPress blog post
  * @param wpBaseURL the base domain of your wordpress installation. Used to add the slug
  */
