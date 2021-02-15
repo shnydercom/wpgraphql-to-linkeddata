@@ -19,7 +19,6 @@ async function main() {
 		console.log("please set ENDPOINT environment variable to your graphql endpoint, aborting")
 		return;
 	}
-
 	const introspectionQuery = getIntrospectionQuery();
 	const response = await fetch(endpoint, {
 		method: "POST",
@@ -28,13 +27,9 @@ async function main() {
 		},
 		body: JSON.stringify({ query: introspectionQuery }),
 	});
-
 	const { data } = await response.json();
-
 	const schema = buildClientSchema(data);
-
 	const outputFile = path.join(__dirname, "./../schema-in/wpgraphql-schema.gql");
-
 	await fs.promises.writeFile(outputFile, printSchema(schema));
 }
 
