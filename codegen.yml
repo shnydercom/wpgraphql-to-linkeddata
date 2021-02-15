@@ -1,5 +1,5 @@
 overwrite: true
-schema: "./schema-in/graphql.schema.json"
+schema: "./schema-in/wpgraphql-schema.gql"
 documents: "src/**/*.graphql"
 generates:
   src/generated/wp-graphql.ts:

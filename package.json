@@ -18,6 +18,7 @@
     "@graphql-codegen/introspection": "1.18.1"
   },
   "scripts": {
+    "get-introspection": "set ENDPOINT=https://your-wordpress-blog.orlocalhost/graphql && yarn node .\\scripts\\get-introspection-json.js",
     "gen-gql": "graphql-codegen --config codegen.yml",
     "build": "tsc"
   }
