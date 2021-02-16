@@ -1,4 +1,3 @@
-import path from "path";
 import fs from "fs";
 import fetch from "node-fetch";
 import { mapWpPostPreviewToSchemaBlogPost } from "../schema-out/mappers/wpPostPreviewToSchemaBlogPost.js";
