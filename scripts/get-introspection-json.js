@@ -1,11 +1,11 @@
-const path = require("path");
-const fs = require("fs");
-const fetch = require("node-fetch");
-const {
+import path from "path";
+import fs from "fs";
+import fetch from "node-fetch";
+import {
 	getIntrospectionQuery,
 	printSchema,
 	buildClientSchema,
-} = require("graphql");
+} from "graphql";
 
 /**
  * runs an introspection query on an endpoint and retrieves its result
