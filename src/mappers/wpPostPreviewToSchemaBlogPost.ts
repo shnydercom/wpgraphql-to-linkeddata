@@ -14,19 +14,13 @@ export function mapWpPostPreviewToSchemaBlogPost(
 	let featuredImgNode = previewNode!.featuredImage!.node;
 	let thumbnailUrl = featuredImgNode!
 		.srcSet!.split(" ")
-		.find((val) => val.startsWith("http://"));
-	if (!previewNode || !thumbnailUrl) return null;
+		.find((val) => val.startsWith("http"));
+	if (!previewNode) return null;
 	let output: BlogPosting = {
 		"@type": "BlogPosting",
-		...(wpBaseURL && {
-			"@id": `${wpBaseURL}/${input.slug}`,
-		}),
-		...(input.title && {
-			name: input.title,
-		}),
-		...(previewNode.excerpt && {
-			abstract: previewNode.excerpt,
-		}),
+		...(wpBaseURL && { "@id": `${wpBaseURL}/${input.slug}` }),
+		...(input.title && { name: input.title }),
+		...(previewNode.excerpt && { abstract: previewNode.excerpt }),
 		...(featuredImgNode && {
 			image: {
 				"@type": "ImageObject",
@@ -39,10 +33,9 @@ export function mapWpPostPreviewToSchemaBlogPost(
 				...(featuredImgNode.sourceUrl && {
 					contentUrl: featuredImgNode.sourceUrl,
 				}),
-				thumbnailUrl,
+				...(thumbnailUrl && { thumbnailUrl }),
 			},
 		}),
-		thumbnailUrl,
 	};
 	return output;
 }
