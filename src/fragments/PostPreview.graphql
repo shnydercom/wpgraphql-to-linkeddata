@@ -1,0 +1,13 @@
+fragment PostPreview on Post {
+  title
+  excerpt
+  featuredImage {
+    node {
+      sourceUrl
+      altText
+      description(format: RAW)
+      srcSet(size: THUMBNAIL)
+    }
+  }
+  slug
+}

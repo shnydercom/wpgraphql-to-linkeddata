@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Converter from wpgraphql to schema.org linked data format in typescript",
   "main": "schema-out/index.js",
+  "type": "module",
   "repository": "https://github.com/shnydercom/wpgraphql-to-linkeddata.git",
   "author": "Jonathan Schneider",
   "license": "MIT",
@@ -19,6 +20,7 @@
   "scripts": {
     "get-introspection": "set ENDPOINT=https://your-wordpress-blog.orlocalhost/graphql && yarn node .\\scripts\\get-introspection-json.js",
     "gen-gql": "graphql-codegen --config codegen.yml",
-    "build": "tsc"
+    "build": "tsc",
+    "try-query": "set ENDPOINT=https://shnyder.com/graphql && yarn node .\\scripts\\try-query.mjs --trace-warnings --unhandled-rejections=strict"
   }
 }

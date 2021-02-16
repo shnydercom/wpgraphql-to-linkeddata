@@ -7,20 +7,19 @@ import { BlogPosting } from "schema-dts";
  * @param wpBaseURL the base domain of your wordpress installation. Used to add the slug
  */
 export function mapWpPostPreviewToSchemaBlogPost(
-	input: PostPreviewFragment,
+	input?: PostPreviewFragment,
 	wpBaseURL?: string
 ): BlogPosting | null {
-	let previewNode = input!.preview!.node;
-	let featuredImgNode = previewNode!.featuredImage!.node;
-	let thumbnailUrl = featuredImgNode!
+	if (!input) return null;
+	let featuredImgNode = input && input.featuredImage && input.featuredImage.node;
+	let thumbnailUrl = featuredImgNode && featuredImgNode
 		.srcSet!.split(" ")
 		.find((val) => val.startsWith("http"));
-	if (!previewNode) return null;
 	let output: BlogPosting = {
 		"@type": "BlogPosting",
 		...(wpBaseURL && { "@id": `${wpBaseURL}/${input.slug}` }),
 		...(input.title && { name: input.title }),
-		...(previewNode.excerpt && { abstract: previewNode.excerpt }),
+		...(input && input.excerpt && { abstract: input.excerpt }),
 		...(featuredImgNode && {
 			image: {
 				"@type": "ImageObject",

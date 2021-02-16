@@ -8098,19 +8098,12 @@ export type ArchiveTemplate = ContentTemplate & {
 
 export type PostPreviewFragment = (
   { __typename?: 'Post' }
-  & Pick<Post, 'title' | 'slug'>
-  & { preview?: Maybe<(
-    { __typename?: 'PostToPreviewConnectionEdge' }
+  & Pick<Post, 'title' | 'excerpt' | 'slug'>
+  & { featuredImage?: Maybe<(
+    { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge' }
     & { node?: Maybe<(
-      { __typename?: 'Post' }
-      & Pick<Post, 'excerpt'>
-      & { featuredImage?: Maybe<(
-        { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge' }
-        & { node?: Maybe<(
-          { __typename?: 'MediaItem' }
-          & Pick<MediaItem, 'altText' | 'description' | 'sourceUrl' | 'srcSet'>
-        )> }
-      )> }
+      { __typename?: 'MediaItem' }
+      & Pick<MediaItem, 'sourceUrl' | 'altText' | 'description' | 'srcSet'>
     )> }
   )> }
 );
