@@ -37,7 +37,7 @@ async function main() {
 		console.log(errors);
 		return;
 	}
-	const mappedJsonLD = mapWpPostPreviewToSchemaBlogPost(responseBody.data.posts.edges[0].node);
+	const mappedJsonLD = mapWpPostPreviewToSchemaBlogPost(responseBody.data.posts.edges[0].node, "https://your-wordpress-blog.orlocalhost");
 	const outputFile = "./json-ld-out/category-blogpostings.json";
 	fs.writeFileSync(outputFile, JSON.stringify(mappedJsonLD, null, 2));
 }
